@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h4>
+    {% if err %}
+        {{err}}
+    {% endif %}
+</h4>
+<form id="login" name="loginform" method="POST" style="margin:100px 400px;">
+    {% csrf_token %}
+    <center><h4>Teacher Login</h4></center>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Enter Email ID</label>
+        <input type="email" name="email" class="form-control"  maxlength="100" required id="id_email">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Enter Password</label>
+        <input type="password" name="passw" class="form-control" required id="id_password">
+    </div>
+    <input type="submit" value="Login" class="button btn btn-dark" />
+</form>
+{% endblock content %}

@@ -1,0 +1,47 @@
+{% extends 'base1.html' %} 
+{% load static %}
+{% block content %}
+<script src="{% static 'js/registerForVaccination.js' %}"></script>
+
+
+<form method="POST" style="margin:50px 100px;" name="register" id="register">
+   {% csrf_token %}
+        
+        <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name" minlength="2" maxlength="255">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="name">Class</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Class" minlength="2" maxlength="255">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="name">Descirbe Topics Covered Today</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Enter Topics Covered" minlength="2" maxlength="255">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="name">Descirbe the Teacher's approach and Give Feedback for his Teaching</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Approach and Feedback" minlength="2" maxlength="255">
+            </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="name">Descirbe Issues If Any</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Issues" minlength="2" maxlength="255">
+          </div>
+      </div>
+        
+    <button type="submit" class="btn btn-dark">Submit</button>
+</form>
+{% endblock %}

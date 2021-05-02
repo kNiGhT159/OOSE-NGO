@@ -1,0 +1,69 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}
+
+<h4>
+  {% if err %}
+      {{err}}
+  {% endif %}
+</h4>
+
+<form method="POST" style="margin:50px 100px;" name="register" id="register">
+   {% csrf_token %}
+        
+        <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="name">Full Name </label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name" minlength="2" maxlength="255">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="contactNumber">Parent Contact Number </label>
+              <input type="number" class="form-control" id="contactNumber" name="num" placeholder="Enter Contact Number" maxlength="12">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="contactNumber">Email </label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email ID">
+            </div>
+        </div>
+     
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Current Standard</label>
+            <select class="form-control" id="exampleFormControlSelect1" name = 'std'>
+              <option>1st</option>
+              <option>2nd</option>
+              <option>3rd</option>
+              <option>4th</option>
+              <option>5th</option>
+            </select>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-12">   
+              <label for="address"> DOB </label>
+              <input type="date" class="form-control" id="password" name="dob" placeholder="Enter your DOB" maxlength="1000">
+            </div>
+        </div>      
+        
+        <div class="form-row">
+            <div class="form-group col-md-12">   
+              <label for="address"> Password </label>
+              <input type="password" class="form-control" id="password" name="passw" placeholder="Enter your Password" maxlength="1000">
+            </div>
+        </div>        
+
+        <div class="form-row">
+          <div class="form-group col-md-12">   
+            <label for="address">Confirm Password </label>
+            <input type="password" class="form-control" id="password" name="cpassw" placeholder="Confirm Password" maxlength="1000">
+          </div>
+      </div>       
+        
+    <button type="submit" class="btn btn-dark">Submit</button>
+</form>
+{% endblock %}

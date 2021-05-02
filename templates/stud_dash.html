@@ -1,0 +1,38 @@
+{% extends 'base1.html' %} 
+{% load static %}
+{% block content %}
+<div class="card" style="width: rem; margin:20px; float:left">
+    <div class="card-body">
+      <h5 class="card-title">Pending Test</h5>
+      <p class="card-text">Click to take a look at your remaining tests.</p>
+      <a href="{% url 'pendtest' %}" class="btn btn-primary btn-dark">Pending Tests</a>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Previous Tests</h5>
+        <p class="card-text">View Information about Previous Tests</p>
+        <a href="#" class="btn btn-primary btn-dark">Previous Tests</a>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem; margin:20px; float:left">
+    <div class="card-body">
+      <h5 class="card-title">View Announcement</h5>
+      <p class="card-text">Click to take a look at the latest announcements.</p>
+      <a href="{% url 'viewannoun' %}" class="btn btn-primary btn-dark">View Announcements</a>
+    </div>
+</div>
+<div class="card" style="width: 18rem; margin:20px; float:left">
+  <div class="card-body">
+    <h5 class="card-title">Fill Feedback</h5>
+    <p class="card-text">Click to fill the Feedback for the Latest Session.</p>
+    <a href="{% url 'feed' %}" class="btn btn-primary btn-dark">Feedback</a>
+  </div>
+</div>
+<div class="card" style="width: rem; margin:20px; float:left">
+  <div class="card-body">
+      <h5 class="card-title">View Resources</h5>
+      <p class="card-text">Click to view all Resources</p>
+      <a href="{% url 'post' %}" class="btn btn-primary btn-dark">View Resources</a>
+  </div>
+</div>
+  
+{% endblock %}

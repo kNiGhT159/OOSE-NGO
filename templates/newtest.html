@@ -1,0 +1,33 @@
+{% extends 'base2.html' %} 
+{% load static %}
+{% block content %}
+<script src="{% static 'js/registerForVaccination.js' %}"></script>
+
+
+<form method="POST" style="margin:50px 100px;" name="register" id="register">
+   {% csrf_token %}
+        
+        <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="name">Subject Name </label>
+              <input type="text" class="form-control" id="name" name="subname" placeholder="Enter Subject Name" minlength="2" maxlength="255">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="contactNumber">Number of Questions</label>
+              <input type="number" class="form-control" id="contactNumber" name="numques" placeholder="Enter Number of Questions" maxlength="12">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="contactNumber">Due Date </label>
+              <input type="date" class="form-control" id="email" name="time" placeholder="Enter Due Date">
+            </div>
+        </div>
+        
+    <button type="submit" class="btn btn-dark">Submit</button>
+</form>
+{% endblock %}

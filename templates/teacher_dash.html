@@ -1,0 +1,52 @@
+{% extends 'base2.html' %} 
+{% load static %}
+{% block content %}
+<div class="card" style="width: 18rem; margin:20px; float:left">
+    <div class="card-body">
+      <h5 class="card-title">New Announcement</h5>
+      <p class="card-text">Use this to create a new Announcement</p>
+      <a href="{% url 'createannoun' %}" class="btn btn-primary btn-dark">Create Announcement</a>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Previous Announcements</h5>
+        <p class="card-text">View Information about Previous Announcements</p>
+        <a href="#" class="btn btn-primary btn-dark">Previous Announcements</a>
+    </div>
+</div>
+<div class="card" style="width: rem; margin:20px; float:left">
+    <div class="card-body">
+      <h5 class="card-title">New Test</h5>
+      <p class="card-text">Use this to create a new Test</p>
+      <a href="{% url 'newtest' %}" class="btn btn-primary btn-dark">Create Test</a>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Previous Tests</h5>
+        <p class="card-text">View Information about Previous Tests</p>
+        <a href="#" class="btn btn-primary btn-dark">Previous Tests</a>
+    </div>
+  </div>
+  <div class="card" style="width: rem; margin:20px; float:left">
+    <div class="card-body">
+      <h5 class="card-title">Pre-Class Form</h5>
+      <p class="card-text">Fill Before Taking a Class</p>
+      <a href="{% url 'pre' %}" class="btn btn-primary btn-dark">Pre-Class Form</a>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Post-Class Form</h5>
+        <p class="card-text">Fill After Taking a Class</p>
+        <a href="{% url 'post' %}" class="btn btn-primary btn-dark">Post-Class Form</a>
+    </div>
+  </div>
+  <div class="card" style="width: rem; margin:20px; float:left">
+    <div class="card-body">
+      <h5 class="card-title">Add Resources</h5>
+      <p class="card-text">Click to add new Resources</p>
+      <a href="{% url 'pre' %}" class="btn btn-primary btn-dark">Add Resources</a>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">View Resources</h5>
+        <p class="card-text">Click to view all Resources</p>
+        <a href="{% url 'post' %}" class="btn btn-primary btn-dark">View Resources</a>
+    </div>
+  </div>
+{% endblock %}
