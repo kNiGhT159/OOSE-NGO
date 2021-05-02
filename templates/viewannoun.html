@@ -1,10 +1,13 @@
 {% extends 'base1.html' %} 
 {% load static %}
 {% block content %}
-<div class="card" style="width: auto; margin:20px; float:left">
-    <div class="card-body">
-      <h5 class="card-title">Regarding Guest Lecture on 23/4/21</h5>
-      <p class="card-text">Dear students there will be a guest lectue on the 23rd of April,Friday by Prof.Purnima Ahirao on sthe subject of OOSE</p>
+<h2>Announcements</h2>
+{% for i in  ann%}
+<div class="card" style="width: auto; margin:20px;align-content:center; ">
+    <div class="card-body" style="align-content:center">
+      <h5 class="card-title">{{i.heading}}</h5>
+      <p class="card-text">{{i.body}}</p>
     </div>
 </div>
+{% endfor %}
 {% endblock %}

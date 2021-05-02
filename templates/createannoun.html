@@ -4,27 +4,27 @@
 <script src="{% static 'js/registerForVaccination.js' %}"></script>
 
 
-<form method="POST" style="margin:50px 100px;" name="register" id="register">
+<form method="POST" style="margin:50px 100px;" name="register" id="register" action={% url 'postannou' %}>
    {% csrf_token %}
         
    <div class="form-row">
     <div class="form-group col-md-12">
       <label for="name">Announcement Heading</label>
-      <input type="text" class="form-control" id="name" name="subname" placeholder="Enter Announcement" minlength="2" maxlength="255">
+      <input type="text" class="form-control" id="name" name="heading" placeholder="Enter Announcement" minlength="2" maxlength="255">
     </div>
 </div>
 
         <div class="form-row">
             <div class="form-group col-md-12">
               <label for="name">Announcement </label>
-              <input type="text" class="form-control" id="name" name="subname" placeholder="Enter Announcement" minlength="2" maxlength="255">
+              <input type="text" class="form-control" id="name" name="body" placeholder="Enter Announcement" minlength="2" maxlength="255">
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-12">
               <label for="contactNumber">Expires On </label>
-              <input type="date" class="form-control" id="email" name="time">
+              <input type="date" class="form-control" id="email" name="date">
             </div>
         </div>
         

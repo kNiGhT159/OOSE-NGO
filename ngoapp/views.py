@@ -1,8 +1,9 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from .models import Tinfo, Sinfo
+from .models import Tinfo, Sinfo , Announcement
 from django.contrib.auth.models import User, auth
 from django.contrib.auth import authenticate, login, logout, models
+from datetime import date
 
 def index(request):
     return render(request,'index.html')
@@ -50,7 +51,7 @@ def studreg(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         
-        if Tinfo.objects.filter(Email = email).exists() or Tinfo.objects.filter(Email = email).exists():
+        if Tinfo.objects.filter(Email = email).exists() or Sinfo.objects.filter(Email = email).exists():
             err = 'Email already taken. Try a different one.'
             
         else:
@@ -76,7 +77,7 @@ def studreg(request):
                 Std = std
             )
             obj2.save()
-            return redirect("studlogin")
+            return redirect("stud_dash")
         
     template_name = 'studreg.html'
     context={'err':err}
@@ -140,7 +141,18 @@ def stud_dash(request):
     return render(request,'stud_dash.html')
 
 def viewannoun(request):
-    return render(request,'viewannoun.html')
+    
+    toda = date.today()
+    an = Announcement.objects.all()
+    ar=[]
+    for i in an:
+    
+        if i.expires_on>toda:
+            ar.append(i)
+            
+    print(str(len(ar))+"\n")
+    return render(request, 'viewannoun.html', {'ann':ar})
+    
 
 def pendtest(request):
     return render(request,'pendtest.html')
@@ -162,3 +174,16 @@ def addresc(request):
 
 def viewresc(request):
     return render(request,'viewresc.html')
+
+def postannou(request):
+     if request.method == 'POST':
+          heading = request.POST.get('heading')
+          body=request.POST.get('body')
+          date=request.POST.get('date')
+          obj2 = Announcement.objects.create(
+                heading=heading,
+                body=body,
+                expires_on=date
+            )
+          obj2.save()
+     return redirect("createannoun")

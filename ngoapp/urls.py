@@ -23,4 +23,6 @@ urlpatterns = [
     path('feed',views.feed, name = 'feed'),
     path('addresc',views.addresc, name = 'addresc'),
     path('viewresc',views.viewresc, name = 'viewresc'),
+
+    path('postannou',views.postannou,name='postannou'),
 ]
