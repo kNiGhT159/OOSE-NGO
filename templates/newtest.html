@@ -4,7 +4,7 @@
 <script src="{% static 'js/registerForVaccination.js' %}"></script>
 
 
-<form method="POST" style="margin:50px 100px;" name="register" id="register">
+<form method="POST" style="margin:50px 100px;" name="register" id="register" action="createtest">
    {% csrf_token %}
         
         <div class="form-row">

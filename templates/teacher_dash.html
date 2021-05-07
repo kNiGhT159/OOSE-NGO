@@ -10,7 +10,7 @@
     <div class="card-body">
         <h5 class="card-title">Previous Announcements</h5>
         <p class="card-text">View Information about Previous Announcements</p>
-        <a href="#" class="btn btn-primary btn-dark">Previous Announcements</a>
+        <a href="{% url 'viewannoun' %}" class="btn btn-primary btn-dark">Previous Announcements</a>
     </div>
 </div>
 <div class="card" style="width: rem; margin:20px; float:left">
@@ -41,12 +41,12 @@
     <div class="card-body">
       <h5 class="card-title">Add Resources</h5>
       <p class="card-text">Click to add new Resources</p>
-      <a href="{% url 'pre' %}" class="btn btn-primary btn-dark">Add Resources</a>
+      <a href="{% url 'addresc' %}" class="btn btn-primary btn-dark">Add Resources</a>
     </div>
     <div class="card-body">
         <h5 class="card-title">View Resources</h5>
         <p class="card-text">Click to view all Resources</p>
-        <a href="{% url 'post' %}" class="btn btn-primary btn-dark">View Resources</a>
+        <a href="{% url 'viewresc' %}" class="btn btn-primary btn-dark">View Resources</a>
     </div>
   </div>
 {% endblock %}

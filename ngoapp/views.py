@@ -4,6 +4,7 @@ from .models import Tinfo, Sinfo , Announcement
 from django.contrib.auth.models import User, auth
 from django.contrib.auth import authenticate, login, logout, models
 from datetime import date
+from django.contrib.auth.decorators import login_required
 
 def index(request):
     return render(request,'index.html')
@@ -77,7 +78,7 @@ def studreg(request):
                 Std = std
             )
             obj2.save()
-            return redirect("stud_dash")
+            return redirect("studlogin")
         
     template_name = 'studreg.html'
     context={'err':err}
@@ -115,66 +116,80 @@ def studlogin(request):
     context={'err':err}
     return render(request, template_name,context)
 
+@login_required
 def logout(request):
     models.auth.logout(request)
     return redirect('/')
 
+@login_required
 def teacher_dash(request):
     return render(request,'teacher_dash.html')
 
+@login_required
 def testdash(request):
     return render(request,'testdash.html')
 
+@login_required
 def newtest(request):
     return render(request,'newtest.html')
 
+@login_required
 def createtest(request):
     return render(request,'createtest.html')
 
+@login_required
 def announ(request):
     return render(request,'announ.html')
 
+@login_required
 def createannoun(request):
     return render(request,'createannoun.html')
 
+@login_required
 def stud_dash(request):
     return render(request,'stud_dash.html')
 
+@login_required
 def viewannoun(request):
-    
     toda = date.today()
     an = Announcement.objects.all()
     ar=[]
     for i in an:
-    
         if i.expires_on>toda:
             ar.append(i)
             
     print(str(len(ar))+"\n")
     return render(request, 'viewannoun.html', {'ann':ar})
     
-
+@login_required
 def pendtest(request):
     return render(request,'pendtest.html')
 
+@login_required
 def test(request):
     return render(request,'test.html')
 
+@login_required
 def pre(request):
     return render(request,'pre.html')
 
+@login_required
 def post(request):
     return render(request,'post.html')
 
+@login_required
 def feed(request):
     return render(request,'feed.html')
 
+@login_required
 def addresc(request):
     return render(request,'addresc.html')
 
+@login_required
 def viewresc(request):
     return render(request,'viewresc.html')
 
+@login_required
 def postannou(request):
      if request.method == 'POST':
           heading = request.POST.get('heading')
